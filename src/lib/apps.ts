@@ -2,7 +2,7 @@ export type AppCategory = "macos" | "web";
 
 export type AppEntry = {
   slug: string;
-  icon: string; // emoji or char
+  icon: string; // emoji or /icons/xxx.png
   name: string;
   category: AppCategory;
   version: string;
@@ -22,7 +22,7 @@ export type AppEntry = {
 export const apps: AppEntry[] = [
   {
     slug: "remo",
-    icon: "◩",
+    icon: "/icons/remo.png",
     name: "REMO",
     category: "macos",
     version: "1.1",

@@ -32,7 +32,14 @@ export default function AppDetail() {
       {/* minimal header: icon + name + short desc + pobierz */}
       <div className="border border-[#27272a] bg-[#0f0f10] p-5 sm:p-6">
         <div className="flex items-center gap-4">
-          <div className="h-14 w-14 sm:h-16 sm:w-16 shrink-0 border border-[#27272a] bg-[#18181b] flex items-center justify-center text-[24px]">{app.icon}</div>
+          <div className="h-14 w-14 sm:h-16 sm:w-16 shrink-0 border border-[#27272a] bg-[#18181b] flex items-center justify-center overflow-hidden text-[24px]">
+            {app.icon.startsWith("/") ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={app.icon} alt={app.name} className="h-full w-full object-cover" />
+            ) : (
+              app.icon
+            )}
+          </div>
           <div className="min-w-0">
             <h1 className="font-mono font-bold text-[20px] sm:text-[22px] tracking-tight">{app.name}</h1>
             <p className="mt-1 text-[13px] leading-5 text-zinc-400 font-mono">{app.description[lang]}</p>
@@ -66,7 +73,12 @@ export default function AppDetail() {
             <div key={id + i} className="group border border-[#27272a] bg-[#0f0f10] hover:border-[#8b5cf6]/30 transition-colors overflow-hidden">
               <div className="aspect-[16/10] bg-[#18181b] flex flex-col items-center justify-center gap-2 p-4 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(#8b5cf6 1px, transparent 1px), linear-gradient(90deg, #8b5cf6 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
-                <span className="text-[28px] opacity-20">{app.icon}</span>
+                {app.icon.startsWith("/") ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={app.icon} alt={app.name} className="h-10 w-10 object-contain opacity-60" />
+                ) : (
+                  <span className="text-[28px] opacity-20">{app.icon}</span>
+                )}
                 <span className="text-[11px] font-mono text-zinc-500 text-center leading-tight">{app.name} — preview</span>
               </div>
             </div>

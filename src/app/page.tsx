@@ -66,10 +66,12 @@ export default function Home() {
           </span>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mt-4">
-          {filtered.map((app) => (
-            <AppCard key={app.slug} app={app} />
-          ))}
+        <div className={filtered.length === 1 ? "flex justify-center mt-4" : "grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mt-4"}>
+          <div className={filtered.length === 1 ? "w-full max-w-[360px]" : "contents"}>
+            {filtered.map((app) => (
+              <AppCard key={app.slug} app={app} />
+            ))}
+          </div>
         </div>
 
         {filtered.length === 0 && <p className="py-12 text-center text-sm text-zinc-500 font-mono">Brak wyników</p>}
