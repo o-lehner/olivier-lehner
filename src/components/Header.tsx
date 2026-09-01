@@ -47,7 +47,7 @@ export default function Header() {
             }}
             className="inline-flex items-center gap-2 bg-white text-black border border-white px-4 py-2 text-[11px] tracking-widest font-mono font-bold hover:bg-zinc-100 transition-colors rounded-[6px]"
           >
-            <span className="text-[13px] leading-none">↓</span> {tr("donate")}
+            {tr("donate")}
           </a>
         </div>
       </div>
