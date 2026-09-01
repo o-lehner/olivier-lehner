@@ -36,6 +36,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* opencode: mono wszędzie - nadpisz sans */
+html, body, button, input, a, p, h1, h2, h3, h4, span, div {
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
 /* raw opencode scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

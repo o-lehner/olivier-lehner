@@ -45,9 +45,9 @@ export default function Header() {
               e.preventDefault();
               alert(tr("donatePlaceholder"));
             }}
-            className="inline-flex items-center gap-2 border border-[#8b5cf6]/30 bg-[#8b5cf6]/10 px-3 sm:px-4 py-1.5 text-[11px] tracking-widest font-bold text-[#a78bfa] hover:bg-[#8b5cf6] hover:text-white hover:border-[#8b5cf6] transition-colors"
+            className="inline-flex items-center gap-2 bg-white text-black border border-white px-4 py-2 text-[11px] tracking-widest font-mono font-bold hover:bg-zinc-100 transition-colors rounded-[6px]"
           >
-            <span>♥</span> {tr("donate")}
+            <span className="text-[13px] leading-none">↓</span> {tr("donate")}
           </a>
         </div>
       </div>
