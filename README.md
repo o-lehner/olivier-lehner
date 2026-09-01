@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Olivier Lehner — Apps
 
-## Getting Started
+Surowa strona w stylu [opencode.ai](https://opencode.ai) — mono fonty, bordery, zero zaokrągleń, fioletowe akcenty (#8b5cf6). Na górze logo `OLIVIER_LEHNER`, grid aplikacji, po kliknięciu podstrona ze screenshotami i krokami. PL/EN przełącznik.
 
-First, run the development server:
+**Lokalizacja:** `~/Documents/olivier-lehner`
+
+## Szybki start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd ~/Documents/olivier-lehner
+npm install
+npm run dev    # http://localhost:3000
+npm run build  # sprawdź czy buduje się bez błędów
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Jak dodać nową aplikację (30s, bez CMSa)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Edytuj tylko jeden plik: `src/lib/apps.ts` i dodaj obiekt do tablicy `apps`:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```ts
+{
+  slug: "moja-apka",        // URL: /app/moja-apka
+  icon: "⬢",                // emoji / znak
+  name: "Moja Apka",
+  category: "macos",        // "macos" | "web"
+  version: "1.0.0",
+  size: "5.2 MB",
+  os: "macOS 13+",
+  downloadUrl: "/downloads/moja-apka.dmg", // lub "#" na start, potem podmień
+  // websiteUrl: "https://...", // jeśli to strona, użyj tego zamiast downloadUrl
+  githubUrl: "https://github.com/...",
+  description: { pl: "Krótki opis PL", en: "Short EN" },
+  longDescription: { pl: "Długi opis PL", en: "Long EN" },
+  screenshots: ["1","2","3"], // ile placeholderów
+  steps: { pl: ["Krok 1","Krok 2"], en: ["Step 1","Step 2"] },
+  features: { pl: ["Feat 1"], en: ["Feat 1"] },
+  updatedAt: "2026-09-01",
+}
+```
 
-## Learn More
+Potem:
 
-To learn more about Next.js, take a look at the following resources:
+1. Wrzuć plik `.dmg/.zip` do `public/downloads/` (link to `/downloads/nazwa.dmg`)
+2. Wrzuć screenshoty PNG do `public/screenshots/moja-apka/` i podmień placeholdery w `src/app/app/[slug]/page.tsx` (albo zostaw grid — podmienia się w komponencie)
+3. `git push` → Vercel sam zdeployuje
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Donate link
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+W `src/components/Header.tsx:38` jest przycisk `WESPRZYJ / DONATE`. Teraz ma `alert("Podmień...")`. Podmień:
 
-## Deploy on Vercel
+```tsx
+href="https://buymeacoffee.com/twoj-profil"
+// lub https://ko-fi.com/... / https://paypal.me/... / Stripe
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Kolory / styl opencode
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Tło: `#09090b` (zinc-950), karty: `#0f0f10`, border: `#27272a`
+- Font: `Geist Mono` (jak opencode.ai) — `src/app/layout.tsx`
+- Akcent: `#8b5cf6` fioletowy — zmień w `src/app/globals.css` → `--accent`
+- Wszystko mono, bez `rounded`, surowe bordery
+
+## Deploy na Vercel (free)
+
+1. Wejdź na vercel.com → New Project → Import z GitHuba (wrzuć ten folder na GitHub)
+2. Framework: Next.js, Build: `npm run build`, Output: `.next`
+3. Deploy — dostajesz `olivier-lehner.vercel.app`
+4. Domenę podłączysz później w Vercel → Domains
+
+Alternatywa: `npx vercel --prod` z katalogu projektu.
+
+## Struktura
+
+```
+src/
+  lib/apps.ts        ← tu dodajesz apki (3 mocki już są)
+  lib/i18n.tsx       ← PL/EN + tłumaczenia
+  components/Header.tsx
+  components/AppCard.tsx
+  app/page.tsx       ← homepage + hero + grid + about
+  app/app/[slug]/page.tsx ← podstrona apki
+  app/globals.css    ← kolory opencode + fiolet
+public/downloads/    ← pliki .dmg
+public/screenshots/  ← screenshoty
+```
+
+## Mocki
+
+3 apki na start:
+- **SzybkiZapis** (macOS, 8.4 MB) — notatki głosowe
+- **MergePro** (macOS, 12.1 MB) — łączenie PDF
+- **Katalog Stron** (web) — katalog twoich stron
+
+Podmień je na prawdziwe jak będziesz miał gotowe.
