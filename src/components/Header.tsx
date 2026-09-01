@@ -7,8 +7,8 @@ export default function Header() {
   const tr = (k: keyof typeof t) => t[k][lang];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#27272a] bg-[#09090b]/80 backdrop-blur">
-      <div className="mx-auto max-w-[1100px] px-4 sm:px-6 h-[64px] sm:h-[72px] flex items-center justify-between gap-4">
+    <header className="sticky top-0 z-50 border-b border-[#27272a] bg-[#09090b]/90 backdrop-blur">
+      <div className="mx-auto max-w-[1080px] px-4 sm:px-6 h-[64px] sm:h-[72px] flex items-center justify-between gap-4">
         {/* logo - large, no nav */}
         <Link href="/" className="flex items-center gap-3 shrink-0 group">
           <span className="font-mono font-bold tracking-[-0.06em] text-[20px] sm:text-[26px] lg:text-[28px] leading-none">

@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className="flex-1">
       {/* hero - simplified */}
-      <section className="mx-auto max-w-[1100px] px-4 sm:px-6 pt-10 sm:pt-14 pb-8">
+      <section className="mx-auto max-w-[1080px] px-4 sm:px-6 pt-10 sm:pt-14 pb-8">
         <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-8 lg:gap-10 items-start">
           <div className="flex items-center min-h-[180px] lg:min-h-[200px]">
             <h1 className="font-mono font-bold tracking-[-0.06em] leading-[0.9] text-[36px] sm:text-[52px] lg:text-[56px] whitespace-pre-line">
@@ -63,7 +63,7 @@ export default function Home() {
       </section>
 
       {/* apps grid - opencode tabs */}
-      <section id="apps" className="mx-auto max-w-[1100px] px-4 sm:px-6">
+      <section id="apps" className="mx-auto max-w-[1080px] px-4 sm:px-6">
         <div className="flex gap-6 sm:gap-8 border-y border-[#27272a] bg-[#0f0f10]/30 px-4 overflow-x-auto">
           {[
             { id: "all", label: tr("filterAll") },
