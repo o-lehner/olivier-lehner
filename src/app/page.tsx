@@ -23,11 +23,14 @@ export default function Home() {
             </h1>
           </div>
 
-          {/* code preview - generic */}
+          {/* code preview - opencode tabs style */}
           <div className="border border-[#27272a] bg-[#0f0f10] overflow-hidden">
-            <div className="flex items-center justify-between border-b border-[#27272a] bg-[#18181b] px-3 py-2">
-              <span className="text-[10px] tracking-widest font-mono text-zinc-500">OLIVIER.LEHNER — SH</span>
-              <span className="text-[10px] font-mono text-zinc-600">read-only</span>
+            <div className="flex items-center gap-6 bg-[#18181b] border-b border-[#27272a] px-4 overflow-x-auto">
+              <span className="py-3 text-[11px] tracking-widest font-mono border-b-2 border-[#8b5cf6] text-white -mb-px">SH</span>
+              <span className="py-3 text-[11px] tracking-widest font-mono text-zinc-500">NPM</span>
+              <span className="py-3 text-[11px] tracking-widest font-mono text-zinc-500">BUN</span>
+              <span className="py-3 text-[11px] tracking-widest font-mono text-zinc-500">BREW</span>
+              <span className="ml-auto hidden sm:inline text-[10px] font-mono text-zinc-600">read-only</span>
             </div>
             <pre className="p-4 text-[11px] sm:text-[12px] leading-5 font-mono overflow-x-auto">
               <code className="text-zinc-300">
@@ -49,33 +52,39 @@ export default function Home() {
                 <span className="text-zinc-600">— raw. mono. no bullshit.</span>
               </code>
             </pre>
-            <div className="border-t border-[#27272a] bg-[#09090b] px-3 py-2 flex items-center gap-2 text-[10px] font-mono text-zinc-600">
-              <span className="text-[#8b5cf6]">▸</span> <span className="text-zinc-500">built with next.js + vercel</span>
+            <div className="border-t border-[#27272a] bg-[#09090b] px-3 py-2 flex items-center justify-between text-[10px] font-mono text-zinc-600">
+              <span className="flex items-center gap-2">
+                <span className="text-[#8b5cf6]">▸</span> <span className="text-zinc-500">built with next.js + vercel</span>
+              </span>
+              <span className="hidden sm:inline border border-[#27272a] px-1.5 py-0.5 text-zinc-500">⎘ copy</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* apps grid */}
+      {/* apps grid - opencode tabs */}
       <section id="apps" className="mx-auto max-w-[1100px] px-4 sm:px-6">
-        <div className="flex justify-start border-y border-[#27272a] bg-[#0f0f10]/30 px-3 sm:px-4 py-3">
-          <div className="flex items-center gap-1 border border-[#27272a] p-1 bg-[#09090b] w-fit">
-            {[
-              { id: "all", label: tr("filterAll") },
-              { id: "macos", label: tr("filterMac") },
-              { id: "web", label: tr("filterWeb") },
-            ].map((f) => (
-              <button
-                key={f.id}
-                onClick={() => setFilter(f.id as typeof filter)}
-                className={`px-3 py-1 text-[11px] tracking-widest font-mono transition-colors ${
-                  filter === f.id ? "bg-[#8b5cf6] text-white" : "text-zinc-500 hover:text-zinc-200 hover:bg-[#18181b]"
-                }`}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
+        <div className="flex gap-6 sm:gap-8 border-y border-[#27272a] bg-[#0f0f10]/30 px-4 overflow-x-auto">
+          {[
+            { id: "all", label: tr("filterAll") },
+            { id: "macos", label: tr("filterMac") },
+            { id: "web", label: tr("filterWeb") },
+          ].map((f) => (
+            <button
+              key={f.id}
+              onClick={() => setFilter(f.id as typeof filter)}
+              className={`whitespace-nowrap py-3 text-[11px] tracking-widest font-mono border-b-2 -mb-px transition-colors ${
+                filter === f.id
+                  ? "border-[#8b5cf6] text-white"
+                  : "border-transparent text-zinc-500 hover:text-zinc-300"
+              }`}
+            >
+              {f.label}
+            </button>
+          ))}
+          <span className="ml-auto hidden sm:flex items-center text-[10px] font-mono text-zinc-600 py-3">
+            {filtered.length} · {filter === "all" ? "ALL" : filter.toUpperCase()}
+          </span>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mt-4">

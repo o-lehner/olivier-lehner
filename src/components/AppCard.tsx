@@ -41,16 +41,16 @@ export default function AppCard({ app }: { app: AppEntry }) {
 
       <p className="text-[12.5px] leading-[1.6] text-zinc-400 line-clamp-2 min-h-[40px]">{app.description[lang]}</p>
 
-      {/* footer */}
-      <div className="mt-4 flex items-center justify-between border-t border-[#1f1f23] pt-3">
-        <div className="flex gap-1.5 flex-wrap">
+      {/* footer - opencode [*] style */}
+      <div className="mt-4 flex items-center justify-between border-t border-[#1f1f23] pt-3 gap-3">
+        <div className="flex gap-3 flex-wrap">
           {app.features[lang].slice(0, 3).map((f) => (
-            <span key={f} className="text-[10px] tracking-wide text-zinc-500 border border-[#27272a] px-1.5 py-0.5 bg-[#09090b]">
-              {f}
+            <span key={f} className="text-[10px] tracking-wide text-zinc-500 font-mono">
+              <span className="text-[#8b5cf6]">[*]</span> {f}
             </span>
           ))}
         </div>
-        <span className="text-[10px] tracking-widest text-zinc-500 group-hover:text-white transition-colors">
+        <span className="shrink-0 text-[10px] tracking-widest text-zinc-500 group-hover:text-white transition-colors">
           {lang === "pl" ? "SZCZEGÓŁY →" : "DETAILS →"}
         </span>
       </div>
