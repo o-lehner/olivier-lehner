@@ -23,40 +23,25 @@ export default function Home() {
             </h1>
           </div>
 
-          {/* code preview - opencode tabs style */}
+          {/* preview - simplified */}
           <div className="border border-[#27272a] bg-[#0f0f10] overflow-hidden">
-            <div className="flex items-center gap-6 bg-[#18181b] border-b border-[#27272a] px-4 overflow-x-auto">
-              <span className="py-3 text-[11px] tracking-widest font-mono border-b-2 border-[#8b5cf6] text-white -mb-px">SH</span>
-              <span className="py-3 text-[11px] tracking-widest font-mono text-zinc-500">NPM</span>
-              <span className="py-3 text-[11px] tracking-widest font-mono text-zinc-500">BUN</span>
-              <span className="py-3 text-[11px] tracking-widest font-mono text-zinc-500">BREW</span>
-              <span className="ml-auto hidden sm:inline text-[10px] font-mono text-zinc-600">read-only</span>
+            <div className="flex items-center justify-between border-b border-[#27272a] bg-[#18181b] px-3 py-2">
+              <span className="text-[10px] tracking-widest font-mono text-zinc-400">LIVE — 3 APPS</span>
+              <span className="text-[10px] font-mono text-zinc-600">● live</span>
             </div>
-            <pre className="p-4 text-[11px] sm:text-[12px] leading-5 font-mono overflow-x-auto">
-              <code className="text-zinc-300">
-                <span className="text-zinc-500">$ olivier --build</span>
-                {"\n"}
-                <span className="text-[#a78bfa]">stack</span> = [<span className="text-amber-300">&quot;next.js&quot;</span>,{" "}
-                <span className="text-amber-300">&quot;swift&quot;</span>, <span className="text-amber-300">&quot;tailwind&quot;</span>]
-                {"\n"}
-                <span className="text-[#a78bfa]">focus</span> = <span className="text-emerald-400">&quot;tools that save time&quot;</span>
-                {"\n"}
-                <span className="text-zinc-500">{"// ship fast, no bullshit"}</span>
-                {"\n"}
-                <span className="text-[#a78bfa]">ship</span>() {"{"} <span className="text-white">build</span>().<span className="text-white">fast</span>();{" "}
-                <span className="text-white">publish</span>(); {"}"}
-                {"\n"}
-                {"\n"}
-                <span className="text-emerald-400">✓ 3 apps live</span> <span className="text-zinc-500">· macOS + web</span>
-                {"\n"}
-                <span className="text-zinc-600">— raw. mono. no bullshit.</span>
-              </code>
-            </pre>
-            <div className="border-t border-[#27272a] bg-[#09090b] px-3 py-2 flex items-center justify-between text-[10px] font-mono text-zinc-600">
-              <span className="flex items-center gap-2">
-                <span className="text-[#8b5cf6]">▸</span> <span className="text-zinc-500">built with next.js + vercel</span>
-              </span>
-              <span className="hidden sm:inline border border-[#27272a] px-1.5 py-0.5 text-zinc-500">⎘ copy</span>
+            <div className="p-4 font-mono text-[12px] leading-6">
+              <div className="flex items-center gap-2 text-zinc-300">
+                <span className="text-[#8b5cf6]">▸</span> SzybkiZapis <span className="text-zinc-600">— notatki głosowe</span>
+              </div>
+              <div className="flex items-center gap-2 text-zinc-300">
+                <span className="text-[#8b5cf6]">▸</span> MergePro <span className="text-zinc-600">— łączenie PDF</span>
+              </div>
+              <div className="flex items-center gap-2 text-zinc-300">
+                <span className="text-[#8b5cf6]">▸</span> Katalog Stron <span className="text-zinc-600">— web</span>
+              </div>
+            </div>
+            <div className="border-t border-[#27272a] bg-[#09090b] px-3 py-2 text-[10px] font-mono text-zinc-500">
+              ↓ wybierz poniżej
             </div>
           </div>
         </div>
