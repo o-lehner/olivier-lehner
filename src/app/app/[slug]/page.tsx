@@ -55,25 +55,19 @@ export default function AppDetail() {
         )}
       </div>
 
-      {/* screenshots */}
+      {/* screenshots - minimal, no numbers */}
       <section className="mt-6">
         <div className="flex items-center gap-3 mb-3">
           <h2 className="font-mono font-bold tracking-widest text-[11px] text-zinc-300">{tr("screenshots")}</h2>
           <span className="h-px flex-1 bg-[#27272a]" />
-          <span className="text-[11px] font-mono text-zinc-600">{app.screenshots.length} images</span>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {app.screenshots.map((id, i) => (
             <div key={id + i} className="group border border-[#27272a] bg-[#0f0f10] hover:border-[#8b5cf6]/30 transition-colors overflow-hidden">
               <div className="aspect-[16/10] bg-[#18181b] flex flex-col items-center justify-center gap-2 p-4 relative overflow-hidden">
-                <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(#8b5cf6 1px, transparent 1px), linear-gradient(90deg, #8b5cf6 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
+                <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(#8b5cf6 1px, transparent 1px), linear-gradient(90deg, #8b5cf6 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
                 <span className="text-[28px] opacity-20">{app.icon}</span>
-                <span className="text-[10px] tracking-widest font-mono text-zinc-600">SCREENSHOT {i + 1}</span>
                 <span className="text-[11px] font-mono text-zinc-500 text-center leading-tight">{app.name} — preview</span>
-              </div>
-              <div className="border-t border-[#27272a] px-3 py-2 flex items-center justify-between">
-                <span className="text-[10px] font-mono tracking-wide text-zinc-500">0{i + 1} — {app.slug}</span>
-                <span className="text-[10px] text-zinc-700">PNG</span>
               </div>
             </div>
           ))}
