@@ -30,12 +30,12 @@ export const apps: AppEntry[] = [
     os: "macOS 14+",
     downloadUrl: "/downloads/Remo.dmg",
     description: {
-      pl: "Natywne sticky notes na macOS. Pływające karteczki, rich text, kolory — zawsze na wierzchu.",
-      en: "Native macOS sticky notes. Floating cards, rich text, colors — always on top.",
+      pl: "Aplikacja typu sticky notes — rozbudowana, z sortowaniem i wygodnym układaniem na ekranie. Mocno personalizowana i bardzo ładna.",
+      en: "Feature-rich sticky notes — sort, arrange and personalize freely on screen. Beautiful and powerful.",
     },
     longDescription: {
-      pl: "REMO to natywna aplikacja sticky notes w SwiftUI — lekka, szybka, bez Electrona. Piszesz, formatujesz (H1/H2/H3, pogrubienie, listy, checkboxy, linki, obrazki), zmieniasz kolory, przypinasz karteczki na wierzch ekranu. Wszystko lokalnie w ~/Library/Application Support/Remo/notes.json, z auto-zapisem i backupem.",
-      en: "REMO is a native SwiftUI sticky notes app — light, fast, no Electron. Write, format (H1/H2/H3, bold, lists, checkboxes, links, images), change colors, pin notes on top. All local in ~/Library/Application Support/Remo/notes.json with auto-save and backups.",
+      pl: "Aplikacja typu sticky notes — rozbudowana, z sortowaniem i wygodnym układaniem na ekranie. Mocno personalizowana i bardzo ładna. Formatowanie tekstu, kolorowe karteczki, pływające okna zawsze na wierzchu.",
+      en: "Feature-rich sticky notes — sort, arrange and personalize freely on screen. Beautiful and powerful. Rich text, colorful cards, floating windows always on top.",
     },
     screenshots: ["1", "2", "3"],
     steps: {
