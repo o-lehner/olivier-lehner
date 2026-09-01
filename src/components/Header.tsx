@@ -40,11 +40,9 @@ export default function Header() {
           </div>
 
           <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              alert(tr("donatePlaceholder"));
-            }}
+            href="https://paypal.me/OlivierLehner2006"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-white text-black border border-white px-4 py-2 text-[11px] tracking-widest font-mono font-bold hover:bg-zinc-100 transition-colors rounded-[6px]"
           >
             {tr("donate")}
