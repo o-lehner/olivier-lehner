@@ -23,25 +23,19 @@ export default function Home() {
             </h1>
           </div>
 
-          {/* preview - simplified */}
+          {/* preview - minimal, no app names */}
           <div className="border border-[#27272a] bg-[#0f0f10] overflow-hidden">
             <div className="flex items-center justify-between border-b border-[#27272a] bg-[#18181b] px-3 py-2">
-              <span className="text-[10px] tracking-widest font-mono text-zinc-400">LIVE — 3 APPS</span>
-              <span className="text-[10px] font-mono text-zinc-600">● live</span>
+              <span className="text-[10px] tracking-widest font-mono text-zinc-400">SYSTEM</span>
+              <span className="text-[10px] font-mono text-zinc-600">● ready</span>
             </div>
-            <div className="p-4 font-mono text-[12px] leading-6">
-              <div className="flex items-center gap-2 text-zinc-300">
-                <span className="text-[#8b5cf6]">▸</span> SzybkiZapis <span className="text-zinc-600">— notatki głosowe</span>
-              </div>
-              <div className="flex items-center gap-2 text-zinc-300">
-                <span className="text-[#8b5cf6]">▸</span> MergePro <span className="text-zinc-600">— łączenie PDF</span>
-              </div>
-              <div className="flex items-center gap-2 text-zinc-300">
-                <span className="text-[#8b5cf6]">▸</span> Katalog Stron <span className="text-zinc-600">— web</span>
-              </div>
+            <div className="p-5 font-mono text-[12px] leading-7 text-zinc-300">
+              <div>tools that save time</div>
+              <div className="text-zinc-500">macOS · web — no bullshit</div>
+              <div className="mt-2 text-[11px] text-zinc-600">raw. mono. fast.</div>
             </div>
-            <div className="border-t border-[#27272a] bg-[#09090b] px-3 py-2 text-[10px] font-mono text-zinc-500">
-              ↓ wybierz poniżej
+            <div className="border-t border-[#27272a] bg-[#09090b] px-3 py-2 text-[10px] font-mono text-zinc-600">
+              est. 2026 — ship weekly
             </div>
           </div>
         </div>
