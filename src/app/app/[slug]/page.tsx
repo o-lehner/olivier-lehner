@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useState, useEffect } from "react";
 import { getAppBySlug } from "@/lib/apps";
 import { useLang, t } from "@/lib/i18n";
 
@@ -9,6 +10,21 @@ export default function AppDetail() {
   const { lang } = useLang();
   const tr = (k: keyof typeof t) => t[k][lang];
   const app = getAppBySlug(slug);
+  const [lightbox, setLightbox] = useState<number | null>(null);
+  useEffect(() => {
+    if (lightbox === null || !app) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(null);
+      if (e.key === "ArrowLeft") setLightbox((v) => (v === null ? v : (v - 1 + app.screenshots.length) % app.screenshots.length));
+      if (e.key === "ArrowRight") setLightbox((v) => (v === null ? v : (v + 1) % app.screenshots.length));
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [lightbox, app]);
 
   if (!app) {
     return (
@@ -64,7 +80,7 @@ export default function AppDetail() {
         )}
       </div>
 
-      {/* screenshots - real images */}
+      {/* screenshots - uniform + lightbox scroll */}
       <section className="mt-6">
         <div className="flex items-center gap-3 mb-3">
           <h2 className="font-mono font-bold tracking-widest text-[11px] text-zinc-300">{tr("screenshots")}</h2>
@@ -72,13 +88,59 @@ export default function AppDetail() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {app.screenshots.map((src, i) => (
-            <a key={src + i} href={src} target="_blank" rel="noopener noreferrer" className="group border border-[#27272a] bg-[#0f0f10] hover:border-[#8b5cf6]/40 overflow-hidden block">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={src} alt={`${app.name} screenshot ${i + 1}`} className="w-full h-auto object-contain bg-[#18181b] group-hover:opacity-95 transition-opacity" loading="lazy" />
-            </a>
+            <button
+              key={src + i}
+              onClick={() => setLightbox(i)}
+              className="group border border-[#27272a] bg-[#0f0f10] hover:border-[#8b5cf6]/40 overflow-hidden text-left focus:outline-none focus:border-[#8b5cf6]/60"
+            >
+              <div className="aspect-[16/10] bg-[#18181b] flex items-center justify-center overflow-hidden p-1">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={src} alt={`${app.name} screenshot ${i + 1}`} className="max-h-full max-w-full object-contain group-hover:scale-[1.02] transition-transform duration-300" loading="lazy" />
+              </div>
+            </button>
           ))}
         </div>
       </section>
+      {/* lightbox - przewijanie w tym samym oknie */}
+      {lightbox !== null && (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6" onClick={() => setLightbox(null)}>
+          <div className="absolute inset-0 bg-black/85 backdrop-blur-sm" />
+          <button
+            onClick={() => setLightbox(null)}
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 h-9 w-9 rounded-full bg-[#18181b] border border-[#27272a] text-zinc-400 hover:text-white hover:border-zinc-600 flex items-center justify-center text-[18px] leading-none"
+            aria-label="Close"
+          >
+            ×
+          </button>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightbox((v) => (v === null ? v : (v - 1 + app.screenshots.length) % app.screenshots.length));
+            }}
+            className="absolute left-2 sm:left-4 z-10 h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-[#18181b] border border-[#27272a] text-zinc-300 hover:text-white hover:border-zinc-600 flex items-center justify-center text-[18px]"
+            aria-label="Prev"
+          >
+            ‹
+          </button>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightbox((v) => (v === null ? v : (v + 1) % app.screenshots.length));
+            }}
+            className="absolute right-2 sm:right-4 z-10 h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-[#18181b] border border-[#27272a] text-zinc-300 hover:text-white hover:border-zinc-600 flex items-center justify-center text-[18px]"
+            aria-label="Next"
+          >
+            ›
+          </button>
+          <div className="relative max-h-[85vh] max-w-[92vw] sm:max-w-[88vw] flex flex-col items-center gap-3" onClick={(e) => e.stopPropagation()}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={app.screenshots[lightbox]} alt={`${app.name} screenshot ${lightbox + 1}`} className="max-h-[78vh] max-w-full object-contain rounded-[8px] border border-[#27272a] bg-[#0f0f10] shadow-[0_16px_48px_rgba(0,0,0,0.6)]" />
+            <span className="text-[11px] font-mono tracking-widest text-zinc-400">
+              {lightbox + 1} / {app.screenshots.length}
+            </span>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
