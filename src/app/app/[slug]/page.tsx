@@ -64,26 +64,18 @@ export default function AppDetail() {
         )}
       </div>
 
-      {/* screenshots - minimal, no numbers */}
+      {/* screenshots - real images */}
       <section className="mt-6">
         <div className="flex items-center gap-3 mb-3">
           <h2 className="font-mono font-bold tracking-widest text-[11px] text-zinc-300">{tr("screenshots")}</h2>
           <span className="h-px flex-1 bg-[#27272a]" />
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {app.screenshots.map((id, i) => (
-            <div key={id + i} className="group border border-[#27272a] bg-[#0f0f10] hover:border-[#8b5cf6]/30 transition-colors overflow-hidden">
-              <div className="aspect-[16/10] bg-[#18181b] flex flex-col items-center justify-center gap-2 p-4 relative overflow-hidden">
-                <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(#8b5cf6 1px, transparent 1px), linear-gradient(90deg, #8b5cf6 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
-                {app.icon.startsWith("/") ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={app.icon} alt={app.name} className="h-10 w-10 object-contain opacity-60" />
-                ) : (
-                  <span className="text-[28px] opacity-20">{app.icon}</span>
-                )}
-                <span className="text-[11px] font-mono text-zinc-500 text-center leading-tight">{app.name} — preview</span>
-              </div>
-            </div>
+          {app.screenshots.map((src, i) => (
+            <a key={src + i} href={src} target="_blank" rel="noopener noreferrer" className="group border border-[#27272a] bg-[#0f0f10] hover:border-[#8b5cf6]/40 overflow-hidden block">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={src} alt={`${app.name} screenshot ${i + 1}`} className="w-full h-auto object-contain bg-[#18181b] group-hover:opacity-95 transition-opacity" loading="lazy" />
+            </a>
           ))}
         </div>
       </section>

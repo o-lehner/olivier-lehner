@@ -12,7 +12,7 @@ export const t = {
   donate: { pl: "WESPRZYJ", en: "DONATE" },
   heroTitle: {
     pl: "Aplikacje które\noszczędzają czas.",
-    en: "Apps that\nsave time.",
+    en: "Apps that\nsave your time.",
   },
   heroSub: {
     pl: "Narzędzia na macOS i web które sam chciałem mieć. Surowe, szybkie, bez subskrypcji. Pobierz i używaj.",
