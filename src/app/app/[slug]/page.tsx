@@ -91,12 +91,15 @@ export default function AppDetail() {
             <button
               key={src + i}
               onClick={() => setLightbox(i)}
-              className="group border border-[#27272a] bg-[#0f0f10] hover:border-[#8b5cf6]/40 overflow-hidden text-left focus:outline-none focus:border-[#8b5cf6]/60"
+              className="group overflow-hidden rounded-[12px] aspect-[16/10] text-left focus:outline-none focus:ring-2 focus:ring-[#8b5cf6]/50 bg-[#18181b]"
             >
-              <div className="aspect-[16/10] bg-[#18181b] flex items-center justify-center overflow-hidden p-1">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={src} alt={`${app.name} screenshot ${i + 1}`} className="max-h-full max-w-full object-contain group-hover:scale-[1.02] transition-transform duration-300" loading="lazy" />
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={src}
+                alt={`${app.name} screenshot ${i + 1}`}
+                className="h-full w-full object-cover rounded-[12px] group-hover:scale-[1.02] transition-transform duration-300"
+                loading="lazy"
+              />
             </button>
           ))}
         </div>
