@@ -15,7 +15,8 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#27272a] bg-[#09090b]/90 backdrop-blur">
+    <>
+      <header className="sticky top-0 z-50 border-b border-[#27272a] bg-[#09090b]/90 backdrop-blur">
       <div className="mx-auto max-w-[1080px] px-6 sm:px-8 lg:px-10 h-[72px] sm:h-[80px] flex items-center justify-between gap-4">
         {/* logo - pixel art (inspired by Piskel, fixed size/padding) */}
         <Link href="/" className="flex items-center gap-3 shrink-0 group">
@@ -62,10 +63,11 @@ export default function Header() {
           </button>
         </div>
       </div>
+      </header>
       {open && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setOpen(false)} />
-          <div className="relative w-full max-w-[520px] border border-[#27272a] bg-[#0f0f10] rounded-[12px] overflow-hidden">
+          <div className="relative w-full max-w-[520px] max-h-[90vh] overflow-auto border border-[#27272a] bg-[#0f0f10] rounded-[12px] overflow-hidden">
             <div className="flex items-center justify-between border-b border-[#27272a] bg-[#18181b] px-4 py-3">
               <span className="text-[11px] font-mono tracking-widest text-zinc-400">
                 {lang === "pl" ? "WESPRZYJ — WYBIERZ METODĘ" : "SUPPORT — CHOOSE METHOD"}
@@ -108,6 +110,6 @@ export default function Header() {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }
