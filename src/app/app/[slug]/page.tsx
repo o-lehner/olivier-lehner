@@ -91,7 +91,6 @@ export default function AppDetail() {
               <span className="h-1.5 w-1.5 rounded-full bg-[#8b5cf6] shrink-0" /> English
             </span>
           </div>
-          <p className="mt-auto pt-4 text-[11px] font-mono leading-4 text-zinc-500">{lang === "pl" ? "interfejs w obu językach" : "interface in both languages"}</p>
         </div>
       </div>
 
