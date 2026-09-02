@@ -58,7 +58,7 @@ export default function Header() {
           <div className="relative group/kot">
             <button
               onClick={() => setOpen(true)}
-              className="relative z-10 inline-flex items-center gap-2 bg-white text-black border border-white px-4 py-2 text-[11px] tracking-widest font-mono font-bold hover:bg-zinc-100 transition-colors rounded-[6px] group-hover/kot:bg-zinc-100"
+              className="relative z-10 inline-flex items-center gap-2 bg-white text-black border border-white px-4 py-2 text-[11px] tracking-widest font-mono font-bold rounded-[6px] shadow-[0_0_14px_rgba(139,92,246,0.35),0_0_0_1px_rgba(139,92,246,0.25)] ring-1 ring-[#8b5cf6]/20 animate-[donateGlow_2.2s_ease-in-out_infinite] hover:bg-zinc-100 hover:shadow-[0_0_20px_rgba(139,92,246,0.5),0_0_0_1px_rgba(139,92,246,0.4)] hover:ring-[#8b5cf6]/30 transition-all group-hover/kot:bg-zinc-100 group-hover/kot:shadow-[0_0_20px_rgba(139,92,246,0.5)]"
             >
               {tr("donate")}
             </button>
@@ -72,7 +72,7 @@ export default function Header() {
               className="absolute -top-[30px] -right-[18px] sm:-right-[20px] w-[48px] h-[48px] sm:w-[56px] sm:h-[56px] object-contain pointer-events-none select-none z-20 drop-shadow-[0_3px_10px_rgba(0,0,0,0.5)] animate-[kotBeg_2.8s_ease-in-out_infinite] group-hover/kot:animate-none group-hover/kot:scale-110 group-hover/kot:rotate-[8deg] group-hover/kot:-translate-y-0.5 transition-transform duration-200"
             />
           </div>
-          <style>{`@keyframes kotBeg { 0%,72%,100% { transform: translateY(0) rotate(0deg) } 76% { transform: translateY(-2px) rotate(-4deg) } 80% { transform: translateY(-2px) rotate(4deg) } 84% { transform: translateY(0) rotate(-2deg) } }`}</style>
+          <style>{`@keyframes kotBeg { 0%,72%,100% { transform: translateY(0) rotate(0deg) } 76% { transform: translateY(-2px) rotate(-4deg) } 80% { transform: translateY(-2px) rotate(4deg) } 84% { transform: translateY(0) rotate(-2deg) } } @keyframes donateGlow { 0%,100% { box-shadow: 0 0 14px rgba(139,92,246,0.35), 0 0 0 1px rgba(139,92,246,0.25) } 50% { box-shadow: 0 0 22px rgba(139,92,246,0.55), 0 0 0 1px rgba(139,92,246,0.4) } }`}</style>
         </div>
       </div>
       </header>
