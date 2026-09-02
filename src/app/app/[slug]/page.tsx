@@ -45,39 +45,54 @@ export default function AppDetail() {
         {tr("back")}
       </Link>
 
-      {/* minimal header: icon + name + short desc + pobierz */}
-      <div className="border border-[#27272a] bg-[#0f0f10] p-5 sm:p-6">
-        <div className="flex items-center gap-4">
-          <div className="relative h-14 w-14 sm:h-16 sm:w-16 shrink-0 rounded-[14px] sm:rounded-[16px] bg-[#18181b] flex items-center justify-center overflow-hidden text-[24px] shadow-[0_6px_18px_rgba(0,0,0,0.45),0_1px_6px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.06)_inset] ring-1 ring-white/[0.07] ring-inset">
-            {app.icon.startsWith("/") ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={app.icon} alt={app.name} className="h-full w-full object-cover rounded-[inherit]" />
-            ) : (
-              app.icon
-            )}
-            <div className="pointer-events-none absolute inset-0 rounded-[inherit] bg-gradient-to-b from-white/[0.09] via-white/[0.02] to-transparent" />
-            <div className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[0_1px_0_rgba(255,255,255,0.12)_inset]" />
+      {/* header 3/4 + języki 1/4 */}
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-3">
+        <div className="lg:col-span-3 border border-[#27272a] bg-[#0f0f10] p-5 sm:p-6">
+          <div className="flex items-center gap-4">
+            <div className="relative h-14 w-14 sm:h-16 sm:w-16 shrink-0 rounded-[14px] sm:rounded-[16px] bg-[#18181b] flex items-center justify-center overflow-hidden text-[24px] shadow-[0_6px_18px_rgba(0,0,0,0.45),0_1px_6px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.06)_inset] ring-1 ring-white/[0.07] ring-inset">
+              {app.icon.startsWith("/") ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={app.icon} alt={app.name} className="h-full w-full object-cover rounded-[inherit]" />
+              ) : (
+                app.icon
+              )}
+              <div className="pointer-events-none absolute inset-0 rounded-[inherit] bg-gradient-to-b from-white/[0.09] via-white/[0.02] to-transparent" />
+              <div className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[0_1px_0_rgba(255,255,255,0.12)_inset]" />
+            </div>
+            <div className="min-w-0">
+              <h1 className="font-mono font-bold text-[20px] sm:text-[22px] tracking-tight">{app.name}</h1>
+              <p className="mt-1 text-[13px] leading-5 text-zinc-400 font-mono">{app.description[lang]}</p>
+            </div>
           </div>
-          <div className="min-w-0">
-            <h1 className="font-mono font-bold text-[20px] sm:text-[22px] tracking-tight">{app.name}</h1>
-            <p className="mt-1 text-[13px] leading-5 text-zinc-400 font-mono">{app.description[lang]}</p>
-          </div>
+          {primaryAction && (
+            <a
+              href={primaryAction.href}
+              target={primaryAction.href === "#" ? undefined : "_blank"}
+              onClick={(e) => {
+                if (primaryAction.href === "#") {
+                  e.preventDefault();
+                  alert(lang === "pl" ? "Podmień link w src/lib/apps.ts → downloadUrl" : "Replace link in src/lib/apps.ts → downloadUrl");
+                }
+              }}
+              className="mt-5 inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 text-[11px] tracking-widest font-mono font-bold hover:bg-zinc-100 transition-colors rounded-[6px]"
+            >
+              {primaryAction.label} ↓
+            </a>
+          )}
         </div>
-        {primaryAction && (
-          <a
-            href={primaryAction.href}
-            target={primaryAction.href === "#" ? undefined : "_blank"}
-            onClick={(e) => {
-              if (primaryAction.href === "#") {
-                e.preventDefault();
-                alert(lang === "pl" ? "Podmień link w src/lib/apps.ts → downloadUrl" : "Replace link in src/lib/apps.ts → downloadUrl");
-              }
-            }}
-            className="mt-5 inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 text-[11px] tracking-widest font-mono font-bold hover:bg-zinc-100 transition-colors rounded-[6px]"
-          >
-            {primaryAction.label} ↓
-          </a>
-        )}
+        <div className="border border-[#27272a] bg-[#0f0f10] p-4 sm:p-5 flex flex-col">
+          <h3 className="font-mono font-bold tracking-widest text-[11px] text-zinc-300">{lang === "pl" ? "JĘZYKI" : "LANGUAGES"}</h3>
+          <div className="h-px bg-[#27272a] my-3" />
+          <div className="flex flex-col gap-2.5">
+            <span className="inline-flex items-center gap-2 text-[12px] font-mono text-zinc-300">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#8b5cf6] shrink-0" /> Polski
+            </span>
+            <span className="inline-flex items-center gap-2 text-[12px] font-mono text-zinc-300">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#8b5cf6] shrink-0" /> English
+            </span>
+          </div>
+          <p className="mt-auto pt-4 text-[11px] font-mono leading-4 text-zinc-500">{lang === "pl" ? "interfejs w obu językach" : "interface in both languages"}</p>
+        </div>
       </div>
 
       {/* screenshots - uniform + lightbox scroll */}
