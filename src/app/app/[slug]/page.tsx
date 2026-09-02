@@ -32,13 +32,15 @@ export default function AppDetail() {
       {/* minimal header: icon + name + short desc + pobierz */}
       <div className="border border-[#27272a] bg-[#0f0f10] p-5 sm:p-6">
         <div className="flex items-center gap-4">
-          <div className="h-14 w-14 sm:h-16 sm:w-16 shrink-0 border border-[#27272a] bg-[#18181b] flex items-center justify-center overflow-hidden text-[24px]">
+          <div className="relative h-14 w-14 sm:h-16 sm:w-16 shrink-0 rounded-[14px] sm:rounded-[16px] bg-[#18181b] flex items-center justify-center overflow-hidden text-[24px] shadow-[0_6px_18px_rgba(0,0,0,0.45),0_1px_6px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.06)_inset] ring-1 ring-white/[0.07] ring-inset">
             {app.icon.startsWith("/") ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={app.icon} alt={app.name} className="h-full w-full object-cover" />
+              <img src={app.icon} alt={app.name} className="h-full w-full object-cover rounded-[inherit]" />
             ) : (
               app.icon
             )}
+            <div className="pointer-events-none absolute inset-0 rounded-[inherit] bg-gradient-to-b from-white/[0.09] via-white/[0.02] to-transparent" />
+            <div className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[0_1px_0_rgba(255,255,255,0.12)_inset]" />
           </div>
           <div className="min-w-0">
             <h1 className="font-mono font-bold text-[20px] sm:text-[22px] tracking-tight">{app.name}</h1>
