@@ -30,12 +30,12 @@ export const apps: AppEntry[] = [
     os: "macOS 14+",
     downloadUrl: "/downloads/Remo.dmg",
     description: {
-      pl: "Aplikacja typu sticky notes — rozbudowana, z sortowaniem i wygodnym układaniem na ekranie. Mocno personalizowana i bardzo ładna.",
-      en: "Feature-rich sticky notes — sort, arrange and personalize freely on screen. Beautiful and powerful.",
+      pl: "remo to sticky notes, tylko trochę bardziej rozbudowane. możesz dowolnie zmieniać wygląd notatek, kolory, zwijać je, przypinać, sortować i ogólnie urządzić je tak, jak ci wygodnie. prosta apka do zapisywania wszystkiego, co nie może ci wylecieć z głowy.",
+      en: "remo is sticky notes, just a bit more fleshed out. you can change how notes look, colors, collapse them, pin, sort and just set them up however you want. simple app for saving everything you can't let slip your mind.",
     },
     longDescription: {
-      pl: "Aplikacja typu sticky notes — rozbudowana, z sortowaniem i wygodnym układaniem na ekranie. Mocno personalizowana i bardzo ładna. Formatowanie tekstu, kolorowe karteczki, pływające okna zawsze na wierzchu.",
-      en: "Feature-rich sticky notes — sort, arrange and personalize freely on screen. Beautiful and powerful. Rich text, colorful cards, floating windows always on top.",
+      pl: "remo to sticky notes, tylko trochę bardziej rozbudowane. możesz dowolnie zmieniać wygląd notatek, kolory, zwijać je, przypinać, sortować i ogólnie urządzić je tak, jak ci wygodnie. prosta apka do zapisywania wszystkiego, co nie może ci wylecieć z głowy.",
+      en: "remo is sticky notes, just a bit more fleshed out. you can change how notes look, colors, collapse them, pin, sort and just set them up however you want. simple app for saving everything you can't let slip your mind.",
     },
     screenshots: ["/screenshots/remo/1.jpg", "/screenshots/remo/2.jpg", "/screenshots/remo/3.jpg", "/screenshots/remo/4.jpg", "/screenshots/remo/5.jpg"],
     steps: {
