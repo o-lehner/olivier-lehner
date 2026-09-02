@@ -34,12 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <Header />
             <div className="flex-1 flex flex-col">{children}</div>
             <footer className="border-t border-[#27272a] mt-12">
-              <div className="mx-auto max-w-[1080px] px-4 sm:px-6 py-6 flex flex-col sm:flex-row gap-3 justify-between text-[11px] font-mono tracking-wide text-zinc-500">
-                <span>© 2026 OLIVIER LEHNER — raw. mono. no bullshit.</span>
-                <span className="text-zinc-600">
-                  inspiracja: <a href="https://opencode.ai" target="_blank" className="underline hover:text-zinc-300">opencode.ai</a> · zbudowane na Next.js + Vercel
-                </span>
-              </div>
+              <div className="mx-auto max-w-[1080px] px-4 sm:px-6 py-6 text-[11px] font-mono tracking-wide text-zinc-500">© 2026 OLIVIER LEHNER</div>
             </footer>
           </div>
         </LanguageProvider>
