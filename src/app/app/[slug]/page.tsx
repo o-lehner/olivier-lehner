@@ -79,6 +79,11 @@ export default function AppDetail() {
               {primaryAction.label} ↓
             </a>
           )}
+          <div className="mt-4 flex flex-wrap gap-2 text-[11px] font-mono">
+            <span className="border border-[#27272a] bg-[#18181b] px-2.5 py-1 text-zinc-400">v{app.version}</span>
+            <span className="border border-[#27272a] bg-[#18181b] px-2.5 py-1 text-zinc-400">{app.size}</span>
+            <span className="border border-[#27272a] bg-[#18181b] px-2.5 py-1 text-zinc-400">{app.os}</span>
+          </div>
         </div>
         <div className="border border-[#27272a] bg-[#0f0f10] p-4 sm:p-5 flex flex-col">
           <h3 className="font-mono font-bold tracking-widest text-[11px] text-zinc-300">{lang === "pl" ? "JĘZYKI" : "LANGUAGES"}</h3>
