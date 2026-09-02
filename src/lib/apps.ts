@@ -37,7 +37,7 @@ export const apps: AppEntry[] = [
       pl: "Aplikacja typu sticky notes — rozbudowana, z sortowaniem i wygodnym układaniem na ekranie. Mocno personalizowana i bardzo ładna. Formatowanie tekstu, kolorowe karteczki, pływające okna zawsze na wierzchu.",
       en: "Feature-rich sticky notes — sort, arrange and personalize freely on screen. Beautiful and powerful. Rich text, colorful cards, floating windows always on top.",
     },
-    screenshots: ["/screenshots/remo/1.png", "/screenshots/remo/2.png", "/screenshots/remo/3.png", "/screenshots/remo/4.png", "/screenshots/remo/5.png", "/screenshots/remo/6.png"],
+    screenshots: ["/screenshots/remo/1.jpg", "/screenshots/remo/2.jpg", "/screenshots/remo/3.jpg", "/screenshots/remo/4.jpg", "/screenshots/remo/5.jpg"],
     steps: {
       pl: [
         "Pobierz REMO.dmg i przeciągnij Remo.app do /Applications",
