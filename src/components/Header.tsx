@@ -77,33 +77,56 @@ export default function Header() {
               </button>
             </div>
             <div className="grid gap-3 p-4">
-              {/* Stripe - Apple Pay / Google Pay / BLIK / Karta */}
+              {/* Stripe — ikony tylko */}
               <a
                 href="https://donate.stripe.com/8x25kDdyA72LdWo7SEao800"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between border border-[#27272a] bg-[#09090b] hover:border-[#8b5cf6]/40 hover:bg-[#18181b] px-4 py-3 transition-colors group"
+                className="flex flex-col items-center justify-center gap-3 border border-[#27272a] bg-[#09090b] hover:border-[#8b5cf6]/40 hover:bg-[#18181b] py-6 px-4 transition-colors group"
               >
-                <div>
-                  <div className="text-[12px] font-mono font-bold tracking-wide text-white group-hover:text-[#a78bfa]">APPLE PAY / GOOGLE PAY / BLIK / KARTA</div>
-                  <div className="text-[11px] font-mono text-zinc-500">{lang === "pl" ? "Stripe — 1 klik na telefonie, karta, BLIK, Przelewy24" : "Stripe — 1 tap on phone, card, BLIK, Przelewy24"}</div>
+                <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
+                  {/* Apple Pay */}
+                  <span className="inline-flex items-center justify-center rounded-[6px] bg-white px-3 py-1.5 h-[28px]">
+                    <span className="text-[13px] font-bold tracking-tight text-black leading-none"> Pay</span>
+                  </span>
+                  {/* Google Pay */}
+                  <span className="inline-flex items-center justify-center rounded-[6px] bg-white px-3 py-1.5 h-[28px] gap-0.5">
+                    <span className="text-[13px] font-bold tracking-tight leading-none">
+                      <span className="text-[#4285F4]">G</span>
+                      <span className="text-[#EA4335]"> </span>
+                      <span className="text-black">Pay</span>
+                    </span>
+                  </span>
+                  {/* BLIK */}
+                  <span className="inline-flex items-center justify-center rounded-[6px] bg-white px-3 py-1.5 h-[28px]">
+                    <span className="text-[11px] font-black tracking-tighter text-black leading-none">BLIK</span>
+                  </span>
+                  {/* Karta */}
+                  <span className="inline-flex items-center justify-center rounded-[6px] bg-white px-2.5 py-1.5 h-[28px] w-[44px]">
+                    <svg width="20" height="14" viewBox="0 0 20 14" fill="none" className="shrink-0">
+                      <rect x="0.5" y="0.5" width="19" height="13" rx="2" stroke="black" strokeOpacity="0.2" />
+                      <rect x="1" y="4" width="18" height="2.5" fill="black" />
+                      <rect x="2" y="9" width="4" height="2" rx="0.5" fill="black" fillOpacity="0.15" />
+                    </svg>
+                  </span>
                 </div>
-                <span className="text-[11px] font-mono tracking-widest text-zinc-400 group-hover:text-white">→</span>
+                <span className="text-[10px] font-mono tracking-widest text-zinc-600 group-hover:text-zinc-400">STRIPE</span>
               </a>
-              {/* PayPal */}
+              {/* PayPal — ikona tylko */}
               <a
                 href="https://paypal.me/OlivierLehner2006"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between border border-[#27272a] bg-[#09090b] hover:border-[#8b5cf6]/40 hover:bg-[#18181b] px-4 py-3 transition-colors group"
+                className="flex flex-col items-center justify-center gap-2 border border-[#27272a] bg-[#09090b] hover:border-[#8b5cf6]/40 hover:bg-[#18181b] py-5 px-4 transition-colors group"
               >
-                <div>
-                  <div className="text-[12px] font-mono font-bold tracking-wide text-white group-hover:text-[#a78bfa]">PayPal</div>
-                  <div className="text-[11px] font-mono text-zinc-500">paypal.me/OlivierLehner2006</div>
-                </div>
-                <span className="text-[11px] font-mono tracking-widest text-zinc-400 group-hover:text-white">→</span>
+                <span className="inline-flex items-center justify-center rounded-[6px] bg-white px-4 py-1.5 h-[28px]">
+                  <span className="text-[14px] font-bold italic tracking-tight leading-none">
+                    <span className="text-[#003087]">Pay</span>
+                    <span className="text-[#009CDE]">Pal</span>
+                  </span>
+                </span>
               </a>
-              <p className="text-[10px] font-mono leading-relaxed text-zinc-600 px-1">
+              <p className="text-[10px] font-mono leading-relaxed text-zinc-600 px-1 text-center">
                 {lang === "pl" ? "Dzięki za wsparcie! c:" : "Thanks for your support! c:"}
               </p>
             </div>
