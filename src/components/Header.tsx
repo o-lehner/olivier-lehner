@@ -76,36 +76,36 @@ export default function Header() {
                 ×
               </button>
             </div>
-            <div className="grid gap-3 p-4">
+            <div className="grid gap-2.5 p-3">
               {/* Stripe — ikony tylko */}
               <a
                 href="https://donate.stripe.com/8x25kDdyA72LdWo7SEao800"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center justify-center border border-[#27272a] bg-[#09090b] hover:border-[#8b5cf6]/40 hover:bg-[#18181b] py-7 px-4 transition-colors group"
+                className="flex flex-col items-center justify-center border border-[#27272a] bg-[#09090b] hover:border-[#8b5cf6]/40 hover:bg-[#18181b] py-5 px-3 transition-colors group"
               >
-                <div className="flex items-center justify-center gap-2.5 sm:gap-3.5 flex-wrap">
+                <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap w-full">
                   {/* Apple Pay */}
-                  <span className="inline-flex items-center justify-center rounded-[8px] bg-white px-4 py-2 h-[38px]">
-                    <span className="text-[16px] font-bold tracking-tight text-black leading-none"> Pay</span>
+                  <span className="inline-flex items-center justify-center rounded-[10px] bg-white px-5 py-2 h-[46px] flex-1 min-w-[92px] max-w-[120px]">
+                    <span className="text-[18px] font-bold tracking-tight text-black leading-none"> Pay</span>
                   </span>
                   {/* Google Pay */}
-                  <span className="inline-flex items-center justify-center rounded-[8px] bg-white px-4 py-2 h-[38px] gap-0.5">
-                    <span className="text-[16px] font-bold tracking-tight leading-none">
+                  <span className="inline-flex items-center justify-center rounded-[10px] bg-white px-5 py-2 h-[46px] flex-1 min-w-[92px] max-w-[120px] gap-0.5">
+                    <span className="text-[18px] font-bold tracking-tight leading-none">
                       <span className="text-[#4285F4]">G</span>
                       <span className="text-black"> Pay</span>
                     </span>
                   </span>
                   {/* BLIK */}
-                  <span className="inline-flex items-center justify-center rounded-[8px] bg-white px-4 py-2 h-[38px]">
-                    <span className="text-[14px] font-black tracking-tighter text-black leading-none">BLIK</span>
+                  <span className="inline-flex items-center justify-center rounded-[10px] bg-white px-5 py-2 h-[46px] flex-1 min-w-[92px] max-w-[120px]">
+                    <span className="text-[16px] font-black tracking-tighter text-black leading-none">BLIK</span>
                   </span>
                   {/* Karta */}
-                  <span className="inline-flex items-center justify-center rounded-[8px] bg-white px-3 py-2 h-[38px] w-[54px]">
-                    <svg width="24" height="16" viewBox="0 0 20 14" fill="none" className="shrink-0">
+                  <span className="inline-flex items-center justify-center rounded-[10px] bg-white px-4 py-2 h-[46px] flex-1 min-w-[92px] max-w-[120px]">
+                    <svg width="28" height="18" viewBox="0 0 20 14" fill="none" className="shrink-0">
                       <rect x="0.5" y="0.5" width="19" height="13" rx="2" stroke="black" strokeOpacity="0.15" />
-                      <rect x="1" y="4" width="18" height="2.5" fill="black" />
-                      <rect x="2" y="9.5" width="5" height="2.5" rx="0.5" fill="black" fillOpacity="0.12" />
+                      <rect x="1" y="4.5" width="18" height="3" fill="black" />
+                      <rect x="2.5" y="9.8" width="6" height="3" rx="0.7" fill="black" fillOpacity="0.12" />
                     </svg>
                   </span>
                 </div>
@@ -115,10 +115,10 @@ export default function Header() {
                 href="https://paypal.me/OlivierLehner2006"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center justify-center border border-[#27272a] bg-[#09090b] hover:border-[#8b5cf6]/40 hover:bg-[#18181b] py-6 px-4 transition-colors group"
+                className="flex flex-col items-center justify-center border border-[#27272a] bg-[#09090b] hover:border-[#8b5cf6]/40 hover:bg-[#18181b] py-5 px-3 transition-colors group"
               >
-                <span className="inline-flex items-center justify-center rounded-[8px] bg-white px-6 py-2 h-[38px]">
-                  <span className="text-[16px] font-bold italic tracking-tight leading-none">
+                <span className="inline-flex items-center justify-center rounded-[10px] bg-white px-8 py-2 h-[46px] w-full max-w-[260px]">
+                  <span className="text-[18px] font-bold italic tracking-tight leading-none">
                     <span className="text-[#003087]">Pay</span>
                     <span className="text-[#009CDE]">Pal</span>
                   </span>
