@@ -62,15 +62,17 @@ export default function Header() {
             >
               {tr("donate")}
             </button>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/kot.png"
-              alt=""
-              width={56}
-              height={56}
-              draggable={false}
-              className="absolute -top-[30px] -right-[18px] sm:-right-[20px] w-[48px] h-[48px] sm:w-[56px] sm:h-[56px] object-contain pointer-events-none select-none z-20 drop-shadow-[0_3px_10px_rgba(0,0,0,0.5)] animate-[kotBeg_2.8s_ease-in-out_infinite] group-hover/kot:animate-none group-hover/kot:scale-110 group-hover/kot:rotate-[8deg] group-hover/kot:-translate-y-0.5 transition-transform duration-200"
-            />
+            <div className="absolute -top-[32px] -right-[28px] sm:-right-[30px] w-[48px] h-[48px] sm:w-[56px] sm:h-[56px] pointer-events-none select-none z-20 scale-x-[-1] drop-shadow-[0_3px_10px_rgba(0,0,0,0.5)] animate-[kotBeg_2.8s_ease-in-out_infinite] group-hover/kot:animate-none transition-transform duration-200">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/kot.png"
+                alt=""
+                width={56}
+                height={56}
+                draggable={false}
+                className="w-full h-full object-contain group-hover/kot:scale-110 group-hover/kot:rotate-[8deg] group-hover/kot:-translate-y-0.5 transition-transform duration-200"
+              />
+            </div>
           </div>
           <style>{`@keyframes kotBeg { 0%,72%,100% { transform: translateY(0) rotate(0deg) } 76% { transform: translateY(-2px) rotate(-4deg) } 80% { transform: translateY(-2px) rotate(4deg) } 84% { transform: translateY(0) rotate(-2deg) } } @keyframes donateGlow { 0%,100% { box-shadow: 0 0 14px rgba(139,92,246,0.35), 0 0 0 1px rgba(139,92,246,0.25) } 50% { box-shadow: 0 0 22px rgba(139,92,246,0.55), 0 0 0 1px rgba(139,92,246,0.4) } }`}</style>
         </div>
