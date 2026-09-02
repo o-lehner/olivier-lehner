@@ -80,7 +80,6 @@ export default function AppDetail() {
             </a>
           )}
           <div className="mt-4 flex flex-wrap gap-2 text-[11px] font-mono">
-            <span className="border border-[#27272a] bg-[#18181b] px-2.5 py-1 text-zinc-400">v{app.version}</span>
             <span className="border border-[#27272a] bg-[#18181b] px-2.5 py-1 text-zinc-400">{app.size}</span>
             <span className="border border-[#27272a] bg-[#18181b] px-2.5 py-1 text-zinc-400">{app.os}</span>
           </div>
