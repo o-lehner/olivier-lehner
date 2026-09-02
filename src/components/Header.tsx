@@ -62,7 +62,7 @@ export default function Header() {
             >
               {tr("donate")}
             </button>
-            <div className="absolute -top-[32px] -right-[28px] sm:-right-[30px] w-[48px] h-[48px] sm:w-[56px] sm:h-[56px] pointer-events-none select-none z-20 scale-x-[-1] drop-shadow-[0_3px_10px_rgba(0,0,0,0.5)] animate-[kotBeg_2.8s_ease-in-out_infinite] group-hover/kot:animate-none transition-transform duration-200">
+            <div className="absolute -top-[26px] -right-[34px] sm:-right-[38px] w-[48px] h-[48px] sm:w-[56px] sm:h-[56px] pointer-events-none select-none z-20 scale-x-[-1] drop-shadow-[0_3px_10px_rgba(0,0,0,0.5)] animate-[kotBeg_2.8s_ease-in-out_infinite] group-hover/kot:animate-none transition-transform duration-200">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/kot.png"
