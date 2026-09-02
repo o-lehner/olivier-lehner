@@ -58,7 +58,7 @@ export default function Header() {
           <div className="relative group/kot">
             <button
               onClick={() => setOpen(true)}
-              className="relative z-10 inline-flex items-center gap-2 bg-white text-black border border-white px-4 py-2 text-[11px] tracking-widest font-mono font-bold rounded-[6px] shadow-[0_0_14px_rgba(139,92,246,0.35),0_0_0_1px_rgba(139,92,246,0.25)] ring-1 ring-[#8b5cf6]/20 animate-[donateGlow_2.2s_ease-in-out_infinite] hover:bg-zinc-100 hover:shadow-[0_0_20px_rgba(139,92,246,0.5),0_0_0_1px_rgba(139,92,246,0.4)] hover:ring-[#8b5cf6]/30 transition-all group-hover/kot:bg-zinc-100 group-hover/kot:shadow-[0_0_20px_rgba(139,92,246,0.5)]"
+              className="relative z-10 inline-flex items-center gap-2 bg-white text-black border border-white px-4 py-2 text-[11px] tracking-widest font-mono font-bold rounded-[6px] shadow-[0_0_14px_rgba(139,92,246,0.35),0_0_0_1px_rgba(139,92,246,0.25)] ring-1 ring-[#8b5cf6]/20 animate-[donateGlow_2.2s_ease-in-out_infinite] hover:bg-[#8b5cf6] hover:text-white hover:border-[#8b5cf6] hover:shadow-[0_0_24px_rgba(139,92,246,0.6),0_0_0_1px_rgba(139,92,246,0.5)] hover:ring-[#8b5cf6]/40 hover:scale-[1.03] active:scale-[0.98] cursor-pointer transition-all duration-150 group-hover/kot:bg-[#8b5cf6] group-hover/kot:text-white group-hover/kot:border-[#8b5cf6] group-hover/kot:shadow-[0_0_24px_rgba(139,92,246,0.6)]"
             >
               {tr("donate")}
             </button>
