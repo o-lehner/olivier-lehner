@@ -55,12 +55,24 @@ export default function Header() {
             </button>
           </div>
 
-          <button
-            onClick={() => setOpen(true)}
-            className="inline-flex items-center gap-2 bg-white text-black border border-white px-4 py-2 text-[11px] tracking-widest font-mono font-bold hover:bg-zinc-100 transition-colors rounded-[6px]"
-          >
-            {tr("donate")}
-          </button>
+          <div className="relative group/kot">
+            <button
+              onClick={() => setOpen(true)}
+              className="relative z-10 inline-flex items-center gap-2 bg-white text-black border border-white px-4 py-2 text-[11px] tracking-widest font-mono font-bold hover:bg-zinc-100 transition-colors rounded-[6px] group-hover/kot:bg-zinc-100"
+            >
+              {tr("donate")}
+            </button>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/kot.png"
+              alt=""
+              width={56}
+              height={56}
+              draggable={false}
+              className="absolute -top-[30px] -right-[18px] sm:-right-[20px] w-[48px] h-[48px] sm:w-[56px] sm:h-[56px] object-contain pointer-events-none select-none z-20 drop-shadow-[0_3px_10px_rgba(0,0,0,0.5)] animate-[kotBeg_2.8s_ease-in-out_infinite] group-hover/kot:animate-none group-hover/kot:scale-110 group-hover/kot:rotate-[8deg] group-hover/kot:-translate-y-0.5 transition-transform duration-200"
+            />
+          </div>
+          <style>{`@keyframes kotBeg { 0%,72%,100% { transform: translateY(0) rotate(0deg) } 76% { transform: translateY(-2px) rotate(-4deg) } 80% { transform: translateY(-2px) rotate(4deg) } 84% { transform: translateY(0) rotate(-2deg) } }`}</style>
         </div>
       </div>
       </header>
