@@ -59,7 +59,7 @@ export default function AppDetail() {
         <div className="lg:col-span-3 border border-[#27272a] bg-[#0f0f10] p-5 sm:p-6">
           {/* mobile: ikona DUŻA na górze centru, desktop: oryginalny rozmiar */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-4">
-            <div className="relative mx-auto sm:mx-0 h-24 w-24 sm:h-16 sm:w-16 shrink-0 rounded-[22px] sm:rounded-[16px] bg-[#18181b] flex items-center justify-center overflow-hidden text-[28px] shadow-[0_10px_28px_rgba(0,0,0,0.55),0_2px_8px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.06)_inset] ring-1 ring-white/[0.08] ring-inset">
+            <div className="relative mx-auto sm:mx-0 h-24 w-24 shrink-0 rounded-[22px] bg-[#18181b] flex items-center justify-center overflow-hidden text-[28px] shadow-[0_10px_28px_rgba(0,0,0,0.55),0_2px_8px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.06)_inset] ring-1 ring-white/[0.08] ring-inset">
               {app.icon.startsWith("/") ? (
                 <Image src={app.icon} alt={app.name} width={96} height={96} className="h-full w-full object-cover rounded-[inherit]" sizes="96px" />
               ) : (
