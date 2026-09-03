@@ -1,9 +1,8 @@
 "use client";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useLang, t } from "@/lib/i18n";
 
-export default function Header() {
+export default function Footer() {
   const { lang, setLang } = useLang();
   const [open, setOpen] = useState(false);
   const tr = (k: keyof typeof t) => t[k][lang];
@@ -16,60 +15,49 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-[#27272a] bg-[#09090b]/90 backdrop-blur">
-        {/* mobile: logo centered big, desktop: more inset original */}
-        <div className="mx-auto max-w-[1080px] px-6 sm:px-8 lg:px-10 h-[64px] sm:h-[80px] flex items-center justify-center sm:justify-between gap-4 overflow-hidden">
-          <Link href="/" className="flex items-center justify-center sm:justify-start shrink-0 group">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/logo-pixel.png"
-              alt="OLIVIER LEHNER"
-              width={263}
-              height={24}
-              className="h-[26px] sm:h-[20px] lg:h-[24px] w-auto object-contain select-none"
-              style={{ imageRendering: "pixelated" }}
-              draggable={false}
-            />
-          </Link>
+      {/* mobile only fixed bar — hidden on desktop (desktop has header controls) */}
+      <footer className="fixed bottom-0 left-0 right-0 z-40 mt-8 border-t border-[#27272a] bg-[#09090b]/95 backdrop-blur supports-[backdrop-filter]:bg-[#09090b]/80 sm:hidden">
+        <div className="mx-auto w-full max-w-[1080px] px-3 py-2.5 flex items-center justify-between gap-1.5">
+          {/* lang switch */}
+          <div className="flex items-center border border-[#27272a] text-[11px] font-mono shrink-0">
+            <button
+              onClick={() => setLang("pl")}
+              className={`px-2.5 py-1.5 tracking-widest transition-colors ${lang === "pl" ? "bg-[#8b5cf6] text-white" : "text-zinc-500 hover:text-zinc-200 hover:bg-[#18181b]"}`}
+            >
+              PL
+            </button>
+            <div className="w-px h-4 bg-[#27272a]" />
+            <button
+              onClick={() => setLang("en")}
+              className={`px-2.5 py-1.5 tracking-widest transition-colors ${lang === "en" ? "bg-[#8b5cf6] text-white" : "text-zinc-500 hover:text-zinc-200 hover:bg-[#18181b]"}`}
+            >
+              EN
+            </button>
+          </div>
 
-          {/* desktop controls — hidden on mobile */}
-          <div className="hidden sm:flex items-center gap-2 sm:gap-3">
-            <div className="flex items-center border border-[#27272a] text-[11px] font-mono">
-              <button
-                onClick={() => setLang("pl")}
-                className={`px-2.5 py-1.5 tracking-widest transition-colors ${lang === "pl" ? "bg-[#8b5cf6] text-white" : "text-zinc-500 hover:text-zinc-200 hover:bg-[#18181b]"}`}
-              >
-                PL
-              </button>
-              <div className="w-px h-4 bg-[#27272a]" />
-              <button
-                onClick={() => setLang("en")}
-                className={`px-2.5 py-1.5 tracking-widest transition-colors ${lang === "en" ? "bg-[#8b5cf6] text-white" : "text-zinc-500 hover:text-zinc-200 hover:bg-[#18181b]"}`}
-              >
-                EN
-              </button>
-            </div>
+          <div className="flex items-center min-w-0 flex-1 justify-center px-1">
+            <span className="text-[8px] sm:text-[10px] font-mono tracking-[0.12em] text-zinc-500 whitespace-nowrap">© 2026 OLIVIER LEHNER</span>
+          </div>
 
-            <div className="relative group/kot">
-              <button
-                onClick={() => setOpen(true)}
-                className="relative z-10 inline-flex items-center gap-2 bg-white text-black border border-white px-4 py-2 text-[11px] tracking-widest font-mono font-bold rounded-[6px] shadow-[0_0_14px_rgba(139,92,246,0.35),0_0_0_1px_rgba(139,92,246,0.25)] ring-1 ring-[#8b5cf6]/20 animate-[donateGlow_2.2s_ease-in-out_infinite] hover:bg-[#8b5cf6] hover:text-white hover:border-[#8b5cf6] hover:shadow-[0_0_24px_rgba(139,92,246,0.6),0_0_0_1px_rgba(139,92,246,0.5)] hover:ring-[#8b5cf6]/40 hover:scale-[1.03] active:scale-[0.98] cursor-pointer transition-all duration-150 group-hover/kot:bg-[#8b5cf6] group-hover/kot:text-white group-hover/kot:border-[#8b5cf6] group-hover/kot:shadow-[0_0_24px_rgba(139,92,246,0.6)]"
-              >
-                {tr("donate")}
-              </button>
-              <div className="absolute -top-[26px] -right-[38px] w-[56px] h-[56px] pointer-events-none select-none z-20 scale-x-[-1] drop-shadow-[0_3px_10px_rgba(0,0,0,0.5)] animate-[kotBeg_2.8s_ease-in-out_infinite] group-hover/kot:animate-none transition-transform duration-200">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/kot.png" alt="" width={56} height={56} draggable={false} className="w-full h-full object-contain group-hover/kot:scale-110 group-hover/kot:rotate-[8deg] group-hover/kot:-translate-y-0.5 transition-transform duration-200" />
-              </div>
+          <div className="relative group/kot shrink-0">
+            <button
+              onClick={() => setOpen(true)}
+              className="relative z-10 inline-flex items-center gap-2 bg-white text-black border border-white px-3.5 py-2 text-[11px] tracking-widest font-mono font-bold rounded-[6px] shadow-[0_0_14px_rgba(139,92,246,0.35),0_0_0_1px_rgba(139,92,246,0.25)] ring-1 ring-[#8b5cf6]/20 animate-[donateGlow_2.2s_ease-in-out_infinite] hover:bg-[#8b5cf6] hover:text-white hover:border-[#8b5cf6] hover:shadow-[0_0_24px_rgba(139,92,246,0.6),0_0_0_1px_rgba(139,92,246,0.5)] hover:ring-[#8b5cf6]/40 hover:scale-[1.03] active:scale-[0.98] cursor-pointer transition-all duration-150 group-hover/kot:bg-[#8b5cf6] group-hover/kot:text-white group-hover/kot:border-[#8b5cf6] group-hover/kot:shadow-[0_0_24px_rgba(139,92,246,0.6)] whitespace-nowrap pr-3"
+            >
+              <span className="pr-2">{tr("donate")}</span>
+            </button>
+            <div className="absolute -top-[22px] -right-[10px] w-[38px] h-[38px] pointer-events-none select-none z-20 scale-x-[-1] drop-shadow-[0_3px_10px_rgba(0,0,0,0.5)] animate-[kotBeg_2.8s_ease-in-out_infinite] group-hover/kot:animate-none transition-transform duration-200">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/kot.png" alt="" width={38} height={38} draggable={false} className="w-full h-full object-contain group-hover/kot:scale-110 group-hover/kot:rotate-[6deg] group-hover/kot:-translate-y-0.5 transition-transform duration-200" />
             </div>
           </div>
         </div>
+        {/* desktop copyright is in layout footer below, this is just mobile bar */}
         <style>{`@keyframes kotBeg { 0%,72%,100% { transform: translateY(0) rotate(0deg) } 76% { transform: translateY(-2px) rotate(-4deg) } 80% { transform: translateY(-2px) rotate(4deg) } 84% { transform: translateY(0) rotate(-2deg) } } @keyframes donateGlow { 0%,100% { box-shadow: 0 0 14px rgba(139,92,246,0.35), 0 0 0 1px rgba(139,92,246,0.25) } 50% { box-shadow: 0 0 22px rgba(139,92,246,0.55), 0 0 0 1px rgba(139,92,246,0.4) } }`}</style>
-      </header>
+      </footer>
 
-      {/* mobile donate modal is now in Footer, but keep here for desktop as fallback */}
       {open && (
-        <div className="fixed inset-0 z-[100] hidden sm:flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setOpen(false)} />
           <div className="relative w-full max-w-[520px] max-h-[90vh] overflow-auto border border-[#27272a] bg-[#0f0f10] rounded-[12px] overflow-hidden">
             <div className="flex items-center justify-between border-b border-[#27272a] bg-[#18181b] px-4 py-3">

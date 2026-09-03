@@ -26,6 +26,7 @@
 
 html {
   scrollbar-gutter: stable;
+  overflow-x: hidden;
 }
 
 body {
@@ -34,6 +35,7 @@ body {
   font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
   font-feature-settings: "ss01" on, "ss02" on;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 /* opencode: mono wszędzie - nadpisz sans */

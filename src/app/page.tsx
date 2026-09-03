@@ -114,9 +114,9 @@ function AnimatedJson() {
     return (
       <>
         <span className="text-zinc-600">{sp}</span>
-        <span className="text-[#8b5cf6]">&quot;{key}&quot;</span>
+        <span className="text-[#8b5cf6]">{"\""}{key}{"\""}</span>
         <span className="text-zinc-500">{colon}</span>
-        <span className={valColor}>{rest.replace(/^"/, "&quot;").replace(/"$/, "&quot;")}</span>
+        <span className={valColor}>{rest}</span>
       </>
     );
   };
