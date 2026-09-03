@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { getAppBySlug } from "@/lib/apps";
 import { useLang, t } from "@/lib/i18n";
+import FeedbackSection from "@/components/FeedbackSection";
 
 export default function AppDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -105,23 +106,45 @@ export default function AppDetail() {
           <span className="h-px flex-1 bg-[#27272a]" />
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {app.screenshots.map((src, i) => (
-            <button
-              key={src + i}
-              onClick={() => setLightbox(i)}
-              className="group overflow-hidden rounded-[12px] aspect-[16/10] text-left focus:outline-none focus:ring-2 focus:ring-[#8b5cf6]/50 bg-[#18181b]"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={src}
-                alt={`${app.name} screenshot ${i + 1}`}
-                className="h-full w-full object-cover rounded-[12px] group-hover:scale-[1.02] transition-transform duration-300"
-                loading="lazy"
-              />
-            </button>
-          ))}
+          {app.screenshots.map((src, i) => {
+            const isVideo = src.endsWith(".mp4") || src.endsWith(".mov") || src.endsWith(".webm");
+            return (
+              <button
+                key={src + i}
+                onClick={() => setLightbox(i)}
+                className="group relative overflow-hidden rounded-[12px] aspect-[16/10] text-left focus:outline-none focus:ring-2 focus:ring-[#8b5cf6]/50 bg-[#18181b]"
+              >
+                {isVideo ? (
+                  <video
+                    src={src}
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    className="h-full w-full object-cover rounded-[12px] group-hover:scale-[1.02] transition-transform duration-300"
+                  />
+                ) : (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={src}
+                    alt={`${app.name} screenshot ${i + 1}`}
+                    className="h-full w-full object-cover rounded-[12px] group-hover:scale-[1.02] transition-transform duration-300"
+                    loading="lazy"
+                  />
+                )}
+                {isVideo && (
+                  <span className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                    <span className="h-8 w-8 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white text-[14px] backdrop-blur">▶</span>
+                  </span>
+                )}
+              </button>
+            );
+          })}
         </div>
       </section>
+
+      {/* feedback */}
+      <FeedbackSection appSlug={app.slug} appName={app.name} />
       {/* lightbox - przewijanie w tym samym oknie */}
       {lightbox !== null && (
         <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6" onClick={() => setLightbox(null)}>
@@ -154,8 +177,18 @@ export default function AppDetail() {
             ›
           </button>
           <div className="relative max-h-[85vh] max-w-[92vw] sm:max-w-[88vw] flex flex-col items-center gap-3" onClick={(e) => e.stopPropagation()}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={app.screenshots[lightbox]} alt={`${app.name} screenshot ${lightbox + 1}`} className="max-h-[78vh] max-w-full object-contain rounded-[8px] border border-[#27272a] bg-[#0f0f10] shadow-[0_16px_48px_rgba(0,0,0,0.6)]" />
+            {app.screenshots[lightbox].endsWith(".mp4") || app.screenshots[lightbox].endsWith(".mov") || app.screenshots[lightbox].endsWith(".webm") ? (
+              <video
+                src={app.screenshots[lightbox]}
+                controls
+                autoPlay
+                playsInline
+                className="max-h-[78vh] max-w-full object-contain rounded-[8px] border border-[#27272a] bg-[#0f0f10] shadow-[0_16px_48px_rgba(0,0,0,0.6)]"
+              />
+            ) : (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={app.screenshots[lightbox]} alt={`${app.name} screenshot ${lightbox + 1}`} className="max-h-[78vh] max-w-full object-contain rounded-[8px] border border-[#27272a] bg-[#0f0f10] shadow-[0_16px_48px_rgba(0,0,0,0.6)]" />
+            )}
             <span className="text-[11px] font-mono tracking-widest text-zinc-400">
               {lightbox + 1} / {app.screenshots.length}
             </span>

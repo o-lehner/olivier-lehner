@@ -56,6 +56,45 @@ export const apps: AppEntry[] = [
     },
     updatedAt: "2026-09-01",
   },
+  {
+    slug: "always-on-the-top",
+    icon: "/icons/always-on-the-top.png",
+    name: "Always On The Top",
+    category: "macos",
+    version: "1.0",
+    size: "2.3 MB",
+    os: "macOS 14+",
+    downloadUrl: "/downloads/AlwaysOnTheTop.dmg",
+    description: {
+      pl: "przypina dowolne okno na wierzch po wciśnięciu wybranego skrótu klawiszowego. apka pozwala mieć coś zawsze na górze - przydatna sprawa.",
+      en: "pins any window on top with a custom shortcut. lets you keep something always on top - handy stuff.",
+    },
+    longDescription: {
+      pl: "przypina dowolne okno na wierzch po wciśnięciu wybranego skrótu klawiszowego. apka pozwala mieć coś zawsze na górze - przydatna sprawa.",
+      en: "pins any window on top with a custom shortcut. lets you keep something always on top - handy stuff.",
+    },
+    screenshots: [
+      "/screenshots/always-on-the-top/1.jpg",
+      "/screenshots/always-on-the-top/presentation.mp4",
+    ],
+    steps: {
+      pl: [
+        "Pobierz AlwaysOnTheTop.dmg i przeciągnij Always On The Top.app do /Applications",
+        "Uruchom i nadaj uprawnienia: Screen Recording + Accessibility (System Settings → Privacy & Security)",
+        "Naciśnij ⌥ Option + P aby przypiąć aktywne okno — naciśnij ponownie aby odpiąć",
+      ],
+      en: [
+        "Download AlwaysOnTheTop.dmg and drag Always On The Top.app to /Applications",
+        "Launch and grant Screen Recording + Accessibility (System Settings → Privacy & Security)",
+        "Press ⌥ Option + P to pin the active window — press again to unpin",
+      ],
+    },
+    features: {
+      pl: ["Przypinanie okien", "Live mirror", "Kolorowa ramka", "Własny skrót", "PL/EN"],
+      en: ["Pin windows", "Live mirror", "Colored frame", "Custom shortcut", "PL/EN"],
+    },
+    updatedAt: "2026-09-03",
+  },
 ];
 
 export function getAppBySlug(slug: string) {

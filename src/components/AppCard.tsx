@@ -24,7 +24,13 @@ export default function AppCard({ app }: { app: AppEntry }) {
       </div>
       <h3 className="mt-4 font-mono font-bold text-[15px] tracking-tight group-hover:text-[#a78bfa] transition-colors">{app.name}</h3>
       <p className="mt-1 text-[11px] font-mono tracking-wide text-zinc-500">
-        {lang === "pl" ? "apka sticky notes" : "sticky notes app"}
+        {app.slug === "always-on-the-top"
+          ? lang === "pl"
+            ? "pin okien na wierzch"
+            : "pin windows on top"
+          : lang === "pl"
+            ? "apka sticky notes"
+            : "sticky notes app"}
       </p>
 
       <span className="mt-5 inline-flex items-center justify-center border border-[#27272a] bg-[#09090b] px-5 py-2 text-[11px] tracking-widest font-mono font-bold text-zinc-300 group-hover:text-white group-hover:border-zinc-600 group-hover:bg-[#18181b] transition-colors">
