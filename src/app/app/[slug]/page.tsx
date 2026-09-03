@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { getAppBySlug } from "@/lib/apps";
@@ -60,8 +61,7 @@ export default function AppDetail() {
           <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-4">
             <div className="relative mx-auto sm:mx-0 h-24 w-24 sm:h-16 sm:w-16 shrink-0 rounded-[22px] sm:rounded-[16px] bg-[#18181b] flex items-center justify-center overflow-hidden text-[28px] shadow-[0_10px_28px_rgba(0,0,0,0.55),0_2px_8px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.06)_inset] ring-1 ring-white/[0.08] ring-inset">
               {app.icon.startsWith("/") ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={app.icon} alt={app.name} className="h-full w-full object-cover rounded-[inherit]" />
+                <Image src={app.icon} alt={app.name} width={96} height={96} className="h-full w-full object-cover rounded-[inherit]" sizes="96px" />
               ) : (
                 app.icon
               )}
@@ -132,12 +132,13 @@ export default function AppDetail() {
                     className="h-full w-full object-cover rounded-[12px] group-hover:scale-[1.02] transition-transform duration-300"
                   />
                 ) : (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
+                  <Image
                     src={src}
                     alt={`${app.name} screenshot ${i + 1}`}
+                    width={600}
+                    height={375}
                     className="h-full w-full object-cover rounded-[12px] group-hover:scale-[1.02] transition-transform duration-300"
-                    loading="lazy"
+                    sizes="(max-width: 640px) 100vw, 33vw"
                   />
                 )}
                 {isVideo && (
@@ -203,8 +204,7 @@ export default function AppDetail() {
                 className="max-h-[78vh] max-w-full object-contain rounded-[8px] border border-[#27272a] bg-[#0f0f10] shadow-[0_16px_48px_rgba(0,0,0,0.6)]"
               />
             ) : (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={app.screenshots[lightbox]} alt={`${app.name} screenshot ${lightbox + 1}`} className="max-h-[78vh] max-w-full object-contain rounded-[8px] border border-[#27272a] bg-[#0f0f10] shadow-[0_16px_48px_rgba(0,0,0,0.6)]" />
+              <Image src={app.screenshots[lightbox]} alt={`${app.name} screenshot ${lightbox + 1}`} width={1200} height={750} className="max-h-[78vh] w-auto max-w-full object-contain rounded-[8px] border border-[#27272a] bg-[#0f0f10] shadow-[0_16px_48px_rgba(0,0,0,0.6)]" sizes="90vw" />
             )}
             <span className="text-[11px] font-mono tracking-widest text-zinc-400">
               {lightbox + 1} / {app.screenshots.length}
